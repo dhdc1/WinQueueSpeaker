@@ -33,7 +33,12 @@ namespace WinQueueSpeaker
             string url = "https://translate.google.com/translate_tts?ie=UTF-8&tl=th-TH&client=tw-ob&q=" + text;
             if (player == null) player = new WindowsMediaPlayer();
 
+            if (player.playState == WMPPlayState.wmppsPlaying) {
+               
+                return;
+            }
             player.URL = url;
+            
 
             player.controls.play();
 
